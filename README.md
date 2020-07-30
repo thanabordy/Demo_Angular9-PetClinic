@@ -14,7 +14,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 <img src="https://j.gifs.com/vl4oQ8.gif" width="70%" />
 
-<img src="https://j.gifs.com/VAMPAz.gif" width="70%" />
+<img src="https://j.gifs.com/NLA9Yv.gif" width="70%" />
 
 ## Development server
 
