@@ -1,4 +1,14 @@
+# Api with node js + mongodb
+
+https://github.com/thanabordy/Demo_NodeJs_restApi-MongoDB-PetClinic
+
+# Install node_modules
+
+npm install or npm i
+
 # AngularAdminlte
+
+Main template AdminLTE 3
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.7.
 
