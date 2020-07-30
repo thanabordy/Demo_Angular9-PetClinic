@@ -1,0 +1,172 @@
+<div class="card card-outline card-success">
+
+    <div class="card-header">
+        <i class="fas fa-user"></i>
+        ทะเบียนลูกค้า
+        <button class="btn btn-sm btn-primary ml-2" data-toggle="modal" data-target="#modalCustomer">
+            <i class="fas fa-plus"></i>
+            เพิ่มรายการ
+        </button>
+    </div>
+    <!-- /.card-header -->
+
+    <div class="card-body">
+        <div id="no-more-tables">
+            <table class="table col-sm-12 ">
+                <thead class="">
+                    <tr>
+                        <th>รหัสลูกค้า</th>
+                        <th>ชื่อ</th>
+                        <th>อีเมล์</th>
+                        <th>เบอร์โทร</th>
+                        <th>ที่อยู่</th>
+                        <th>Line id</th>
+                        <th>created_at</th>
+                        <th>updated_at</th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let items of fetchCustomer">
+                        <td data-title="รหัสลูกค้า">{{ items.code }}</td>
+                        <td data-title="ชื่อ">{{ items.name }}</td>
+                        <td data-title="อีเมล์">{{ items.email }}</td>
+                        <td data-title="เบอร์โทร">{{ items.tel }}</td>
+                        <td data-title="ที่อยู่">{{ items.address }}</td>
+                        <td data-title="Line id">{{ items.line_id }}</td>
+                        <td data-title="created_at">{{ items.created_at | date:'d/MM/y,  HH:mm:ss'}}</td>
+                        <td data-title="updated_at">{{ items.updated_at | date:'d/MM/y,  HH:mm:ss'}}</td>
+                        <!-- Action Button in Table in <td> tag -->
+                        <td>
+                    <tr class="table-borderless my-1 d-flex " style="border: 0px;">
+                        <td>
+                            <button class="btn btn-sm btn-warning " (click)="feedCustomer(items)" data-toggle="modal"
+                                data-target="#modalCustomer" style="width: 68px;">
+                                <i class="fas fa-pencil-alt"></i>
+                                แก้ไข
+                            </button>
+                        </td>
+
+                        <td>
+                            <button class="btn btn-sm btn-danger text-light" style="width: 68px;"
+                                (click)="deleteCustomer(items)">
+                                <i class="fas fa-trash-alt"></i>
+                                ลบ
+                            </button>
+                        </td>
+                    </tr>
+                    </td>
+                    <!-- end Action Button in Table in <td> tag -->
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <!-- /.card-body -->
+</div>
+
+<!-- Modal -->
+
+<div class="modal fade" tabindex="-1" id="modalCustomer" role="dialog">
+    <form name="customerForm" #customerForm="ngForm">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header bg-pink py-0">
+                    <h3 class="modal-title my-2">
+                        <i class="fas fa-pencil-alt"></i>
+                        ข้อมูลลูกค้า
+                    </h3>
+                    <button type="button" class="close py-0 px-2 mx-0 my-2" data-dismiss="modal" (click)="resets()"
+                        aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <!-- _id -->
+                    <input class="form-control" type="hidden" name="_id" [(ngModel)]="customerData._id">
+                    <!--end _id -->
+                    <div class="row">
+                        <div class="col-lg-3 col-md-3 col-sm-3">
+                            <div class="form-group">
+                                <label for="my-input">รหัสลูกค้า</label>
+                                <div class="input-group input-group-sm">
+                                    <input class="form-control" type="text" name="code" [(ngModel)]="customerData.code">
+                                    <!-- <input class="form-control" type="text" name="code" ngModel> -->
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="col-lg-9 col-md-9 col-sm-9">
+                            <div class="form-group">
+                                <label for="my-input">ชื่อ</label>
+                                <div class="input-group input-group-sm">
+                                    <input class="form-control" type="text" name="name" [(ngModel)]="customerData.name">
+                                    <!-- <input class="form-control" type="text" name="name" ngModel> -->
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-9 col-md-9 col-sm-9">
+                            <div class="form-group">
+                                <label for="my-input">อีเมล์</label>
+                                <div class="input-group input-group-sm">
+                                    <input class="form-control" type="text" name="email"
+                                        [(ngModel)]="customerData.email">
+                                    <!-- <input class="form-control" type="text" name="email" ngModel> -->
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6">
+                            <div class="form-group">
+                                <label for="my-input">เบอร์โทร</label>
+                                <div class="input-group input-group-sm">
+                                    <input class="form-control" type="text" name="tel" [(ngModel)]="customerData.tel">
+                                    <!-- <input class="form-control" type="text" name="tel" ngModel> -->
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6">
+                            <div class="form-group">
+                                <label for="my-input">Line id</label>
+                                <div class="input-group input-group-sm">
+                                    <input class="form-control" type="text" name="line_id"
+                                        [(ngModel)]="customerData.line_id">
+                                    <!-- <input class="form-control" type="text" name="line_id" ngModel> -->
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-12 col-md-12 col-sm-12">
+                            <div class="form-group">
+                                <label for="my-input">ที่อยู่</label>
+                                <div class="input-group input-group-sm">
+                                    <input class="form-control" type="text" name="address"
+                                        [(ngModel)]="customerData.address">
+                                    <!-- <input class="form-control" type="text" name="address" ngModel> -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+                <div class="text-center mb-3">
+                    <button type="button" class="btn btn-danger btn-sm mr-1" (click)="resets()" data-dismiss="modal"
+                        aria-label="Close">
+                        <i class="fas fa-times"></i>
+                        ยกเลิก
+                    </button>
+                    <button type="submit" class="btn btn-success btn-sm ml-1" (click)="onSubmit_add_update()"
+                        data-dismiss="modal">
+                        <i class="fas fa-check"></i>
+                        บันทึก
+                    </button>
+                    <!-- <button type="submit" class="btn btn-success btn-sm " #closebutton>
+                        <i class="fas fa-check"></i>
+                        บันทึก
+                    </button> -->
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
