@@ -12,7 +12,7 @@ Main template AdminLTE 3
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.7.
 
-<iframe src='//gifs.com/embed/jZ4qqy' frameborder='0' scrolling='no' width='1280px' height='720px' style='-webkit-backface-visibility: hidden;-webkit-transform: scale(1);' ></iframe>
+[![Demo CountPages alpha](https://share.gifyoutube.com/KzB6Gb.gif)]
 
 ## Development server
 
