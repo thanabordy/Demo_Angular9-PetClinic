@@ -12,7 +12,7 @@ Main template AdminLTE 3
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.7.
 
-<img src="https://j.gifs.com/jZ4qqy.gif" width="70%" />
+<img src="https://j.gifs.com/vl4oQ8.gif" width="70%" />
 
 <img src="https://j.gifs.com/VAMPAz.gif" width="70%" />
 
